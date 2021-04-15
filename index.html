@@ -38,6 +38,7 @@ LABEL{display:block;text-align:left;}
 .row{margin:20px 0;}
 .placements{width:100%;margin:15px 0 25px 0;}
 .icon{opacity:0;}
+.region{text-transform:uppercase;}
 
 .comment{border-radius:5px;border:1px #a4b3bf solid;line-height: 23px;text-align:left;background:#151719;margin:15px 0;}
     .comment .padding{padding:15px;}
@@ -301,7 +302,7 @@ table tr.bold td{font-weight:bold;color:white;}
 <div id="error" class="wrap step hide">
     <h2>We couldn't make your report :(</h2>
     <img src="static/img/error.png" width="150">
-    <p>We couldn't find your summoner <b>BaratoMas</b> in <b>EUW</b></p>
+    <p>We couldn't find your summoner <b class="username">BaratoMas</b> in <b class="region">EUW</b></p>
     <button class="next" onclick="goStep(1)">Try again</button>
 </div>
 
@@ -401,6 +402,7 @@ $.ajax({
 
 
     $('.username').html(data.summonerName);
+    $('.region').html(data.region);
     $('.rank').html(data.rank);
 
 
