@@ -14,7 +14,7 @@
 .hide{display:none;}
 
 HTML, BODY{height:100%;}
-BODY{font-size:1rem;text-align:center;color:#a4b3bf;background:black url('static/img/background.png') top center;background-size:100% auto;background-attachment:fixed;}
+BODY{font-size:1rem;text-align:center;color:#a4b3bf;background:black url('static/img/background.png') top center;background-size:auto 100%;background-attachment:fixed;}
 BUTTON.next{cursor:pointer;font-size:1.1rem;font-weight:bold;border:1px #c79e57 solid;background:#c79e57;padding:10px 20px;color:#171721;border-radius:5px;}
 BUTTON.back{font-size:18px;margin-top:10px;cursor:pointer;background:none;padding:0;border:0;color:#c79e57;font-weight:bold;text-decoration:none;}
 SELECT, INPUT[type=text]{margin:10px 0;width:90%;padding:10px 20px;background:#202326;border:1px #a4b3bf solid;color:#a4b3bf;border-radius:5px;}
@@ -74,8 +74,10 @@ table tr.bold td{font-weight:bold;color:white;}
 
 
 @media screen and (min-width: 480px) {
-    .wrap2{width:800px;}
 
+    BODY{background-size:100% auto;}
+    
+    .wrap2{width:800px;}
     .comment{width:45%;float:left;margin:40px 1%;}
 
     #step1 input[type=text]{width:69%;}
