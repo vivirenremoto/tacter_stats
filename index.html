@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>TFT Set 4 Report</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    
+<style>
+*{font-family:arial;}
+.step{padding:15px;}
+.hide{display:none;}
+
+HTML, BODY{height:100%;}
+BODY{font-size:1rem;text-align:center;color:#a4b3bf;background:black url('static/img/background.png') top center;background-size:100% auto;background-attachment:fixed;}
+BUTTON.next{cursor:pointer;font-size:1.1rem;font-weight:bold;border:1px #c79e57 solid;background:#c79e57;padding:10px 20px;color:#171721;border-radius:5px;}
+BUTTON.back{font-size:18px;margin-top:10px;cursor:pointer;background:none;padding:0;border:0;color:#c79e57;font-weight:bold;text-decoration:none;}
+SELECT, INPUT[type=text]{margin:10px 0;width:90%;padding:10px 20px;background:#202326;border:1px #a4b3bf solid;color:#a4b3bf;border-radius:5px;}
+A.link{color:#c79e57;font-weight:bold;text-decoration:none;}
+A.legal{color:#a4b3bf;text-decoration:none;}
+strong{font-size:40px;display:block;}
+H1, H2{font-size:25px;}
+H1, H2, STRONG, B{color:white;}
+LABEL{display:block;text-align:left;}
+
+.wrap, .wrap2{width:480px;margin:auto;}
+
+
+.box{border-radius:5px;background:#151719;padding:15px;border:1px #a4b3bf solid;margin:25px 0;}
+    .box .subtitle{display:block;margin-bottom:20px;}
+.col2{float:left;width:50%;}
+.col3{float:left;width:33.33%;}
+.clear{clear:both;}
+.textL{text-align:left;}
+.textR{text-align:right;}
+.row{margin:20px 0;}
+.placements{width:100%;margin:15px 0 25px 0;}
+.icon{opacity:0;}
+
+.comment{border-radius:5px;border:1px #a4b3bf solid;line-height: 23px;text-align:left;background:#151719;margin:15px 0;}
+    .comment .padding{padding:15px;}
+    .comment span.remark{background:#c79e57;color:#171721;padding:1px 3px;}
+    .comment span.author{margin-top:10px;display:block;text-align:right;}
+    .comment .stars{margin:10px 0;color:#c79e57;font-size: 30px;}
+
+
+.credits{padding-bottom:25px;}
+    .credits a{color:#a4b3bf;text-decoration:none;}
+    .credits_fixed{position:fixed;width:300px;left:50%;margin-left:-150px;bottom:0;}
+
+table td{text-align:center;}
+table tr.bold td{font-weight:bold;color:white;}
+
+#step1 input{width:64%;}
+#step1 select{width:25%;font-weight:bold;color:white;}
+#step1 .col2 a{display:block;text-align:left;}
+
+
+#step3 .box_avatar{text-align:left;color:white;font-weight:bold;padding-top:15px;padding-bottom:15px;width:200px;margin:20px auto;background:url('static/img/tacter_logo_small.png') no-repeat;background-size:auto 100%;background-position:left top;}
+    #step3 .box_avatar div{padding-left:80px;}
+
+#step5 .col3 img{display:block;margin:15px auto;width:70px;height:70px;}
+#step5 .col3 b{display:block;}
+
+
+#step6 .box_avatar{text-align:left;color:white;font-weight:bold;width:350px;margin:20px auto;background:url('static/img/tacter_logo_small.png') no-repeat;background-size:auto 100%;background-position:left top;}
+    #step6 .box_avatar div{padding-left:100px;}
+        #step6 .box_avatar h2{margin-top:0;}
+#step6 .share img{cursor:pointer;width:40px;height:40px;margin-top:10px;margin-left:5px;margin-right:5px;}
+#step6 b{display:block;}
+#step6 .padding{padding-top:25px;}
+
+
+@media screen and (min-width: 480px) {
+    .wrap2{width:800px;}
+
+    .comment{width:45%;float:left;margin:40px 1%;}
+
+    #step1 input[type=text]{width:69%;}
+    #step2 input[type=text]{width:95%;}
+
+}
+</style>
+
+
+
+
+<div id="step1" class="wrap2 step">
+    <h1>Welcome to the TFT Set 4 Report</h1>
+    <div class="credits">
+        Powered by <a href="https://get.tacter.app/WxYiSJCxaeb" target="_blank">Tacter App <img src="static/img/tacter_logo_small.png" align="absmiddle" width="20"></a>
+        <br>and <a href="https://leagueoflegends.fandom.com/wiki/Giant_Slayer_(Teamfight_Tactics)" target="_blank">Giant Slayer <img src="static/img/giant_slayer_logo.png" align="absmiddle" width="20"></a>
+    </div>
+    <p><b>Add your summoner name and region to see your Set 4 performance</b></p>
+    <label>Find your summoner</label>
+    <input type="text" placeholder="Add your summoner name"> 
+    <select>
+        <option>BR</option>
+        <option selected="selected">EUNE</option>
+        <option>EUW</option>
+        <option>KR</option>
+        <option>LAN</option>
+        <option>LAS</option>
+        <option>NA</option>
+        <option>OCE</option>
+        <option>TR</option>
+        <option>RU</option>
+        <option>JP</option>
+    </select>
+    <div class="row">
+        <div class="col2">
+            <a href="#" target="_blank" class="link">See a report example</a>
+        </div>
+        <div class="col2 textR">
+            <button class="next" onclick="goStep(2)">Start <img src="static/img/next.png" align="absmiddle" width="20"></button>
+        </div>
+        <br class="clear">
+    </div>
+</div>
+
+<div id="step2" class="wrap2 step hide">
+    <h2>Analysing your matches...</h2>
+    <p><img src="static/img/loading.gif"></p>
+    <p>This might take a while, add your email and we'll let you know when it's ready</p>
+    <label>Email</label>
+    <input type="text" placeholder="Add your email"> 
+    <label><input type="checkbox"> <a href="#" class="legal">Terms & Conditions</a></label>
+    <div class="row">
+        <div class="col2 textL">
+            <button class="back" onclick="goStep(1)"><img src="static/img/back1.png" align="absmiddle" width="16"> Back</button>
+        </div>
+        <div class="col2 textR">
+            <button class="next" onclick="goStep(3)">Submit email</button>
+        </div>
+        <br class="clear">
+    </div> 
+    <div class="row hide" id="msg_sent"><b>We'll let you know when it's ready!</b></div>
+</div>
+
+<div id="step3" class="wrap step hide">
+    <h2>Hi <span class="username">BaratoNoMas</span>!</h2>
+    <div>In this season you achieved...</div>
+
+    <div class="box_avatar rank_icon">
+        <div class="rank">
+            Gold II<br>20 LP
+        </div>
+    </div>
+    
+    <div class="col2">Games played<strong class="number total_games" data-number="325">0</strong></div>
+    <div class="col2">Total hours<strong class="number total_hours" data-number="178">0</strong></div>
+    
+    <br class="clear"><br>
+    
+    <div>Placement distribution</div>
+    <table class="placements"></table>
+
+    <div class="row">
+        <div class="col2 textL">
+            <button class="back" onclick="goStep(1)">Find other player</button>
+        </div>
+        <div class="col2 textR">
+            <button class="next" onclick="goStep(4)">Continue <img src="static/img/next.png" align="absmiddle" width="20"></button>
+        </div>
+        <br class="clear">
+    </div>
+</div>
+
+<div id="step4" class="wrap step hide">
+    <h2>About your matches</h2>
+    <div>In a game you last an average time of</div>
+    <strong><span class="number" data-number="28">0</span>:<span class="number" data-number="52">0</span></strong>
+    <div>🌐 Global average is <span class="number time_avg_hour" data-number="26">0</span>:<span class="number time_avg_minute" data-number="43">0</span></div>
+    <div class="box">
+        <b class="subtitle">Time flies! ⌛</b>
+        <div class="col2">Shortest game<strong><span class="number time_longest_hour" data-number="13">0</span>:<span class="number time_longest_minute" data-number="42">0</span></strong></div>
+        <div class="col2">Longuest game<strong><span class="number time_shortest_hour" data-number="43">0</span>:<span class="number time_shortest_minute" data-number="26">0</span></strong></div>    
+        <br class="clear">
+    </div>
+    <div class="box">
+        <b class="subtitle">You're a real fighter ⚔️</b>
+        <div class="col2">Players killed<strong class="number total_killed" data-number="687">0</strong></div>
+        <div class="col2">Player damage<strong class="number total_damage" data-number="12994">0</strong></div>
+        <br class="clear">
+    </div>
+    <div class="col2 textL">
+        <button class="back" onclick="goStep(3)"><img src="static/img/back1.png" align="absmiddle" width="16"> Back</button>
+    </div>
+    <div class="col2 textR">
+        <button class="next" onclick="goStep(5)">Continue <img src="static/img/next.png" align="absmiddle" width="20"></button>
+    </div>
+    <br class="clear">
+</div>
+
+<div id="step5" class="wrap step hide">
+    <h2>About your gameplay</h2>
+    <div class="box">
+        <b class="subtitle">Your most played champions:</b>
+        <div id="champions"></div>
+        <br class="clear">
+    </div>
+    <div class="box">
+        <b class="subtitle">Your most played items:</b>
+        <div id="items"></div>
+        <br class="clear">
+    </div>
+    <div class="col2 textL">
+        <button class="back" onclick="goStep(4)"><img src="static/img/back1.png" align="absmiddle" width="16"> Back</button>
+    </div>
+    <div class="col2 textR">
+        <button class="next" onclick="goStep(6)">Continue <img src="static/img/next.png" align="absmiddle" width="20"></button>
+    </div>
+    <br class="clear">
+</div>
+
+<div id="step6" class="step hide">
+
+
+    <div class="wrap">
+
+        <div class="box_avatar rank_icon">
+            <div>
+                <h2 class="username">BaratoNoMas</h2>
+                <span class="rank">Gold II 20 LP</span> 
+            </div>
+        </div>
+
+
+
+        <div class="col2">Games played<strong class="number total_games_played" data-number="325">0</strong></div>
+        <div class="col2">Total hours<strong class="number total_hours" data-number="178">0</strong></div>
+        
+        <br class="clear"><br>
+
+        <div class="col2">Players killed<strong class="number total_killed" data-number="687">0</strong></div>
+        <div class="col2">Player damage<strong class="number total_damage" data-number="12994">0</strong></div>
+        
+        <br class="clear">
+
+        <div class="row">
+            <div>Placement distribution</div>
+            <table class="placements"></table>
+        </div>
+
+        <div class="row">
+            <div class="share padding">
+                <b>Share your report</b>
+                <img src="static/img/Twitter.png" class="btn_share" alt="twitter">
+                <img src="static/img/Facebook.png" class="btn_share" alt="facebook">
+                <img src="static/img/WhatsApp.png" class="btn_share" alt="whatsapp">
+                <!--<img src="static/img/Share.png">-->
+            </div>
+        </div>
+        
+        <div class="row padding">
+            <button class="back" onclick="goStep(3)"><img src="static/img/rewind.png" align="absmiddle" width="16"> Watch again</button>
+        </div>
+
+    </div>
+
+    <div class="wrap2">
+        <div class="padding">
+            <h2>Did you like the report? You'll love Tacter App!</h2>
+
+            <div class="row">
+                <b>Join a 1,000,000 players community preparing for Set 5</b>
+            </div>
+
+            <button class="next download">Get Tacter App</button>
+        
+            
+        </div>
+
+        <div class="comment">
+            <div class="padding">
+                <b>Rank up to Platinum within a week using this app.</b>
+                <div class="stars">★★★★★</div>
+                I was easy able to <span class="remark">rank up to plat within a week</span> mostly with the help of this Tacter. The ability to create your own comp is really user friendly and thorough. It keeps the game fun when you win games with your own comp that you designed.
+                <span class="author">by Jeffharje</span>
+        </div>
+        </div>
+        <div class="comment">
+            <div class="padding">
+                <b>Best tool for quick reference vs going on a website.</b>
+                <div class="stars">★★★★★</div>
+                As a non-LoL (League of Legends) person coming for only TFT, this is a fantastic tool to help you <span class="remark">learn the items and synergy mechanics.</span> You always have it as a quick reference vs taking the time mid game to go to a website.
+                <span class="author">by MPLS_Twin</span>
+            </div>
+        </div>
+        
+        <br class="clear">
+        
+    </div>
+</div>
+
+
+
+<div id="error" class="wrap step hide">
+    <h2>We couldn't make your report :(</h2>
+    <img src="static/img/error.png" width="150">
+    <p>We couldn't find your summoner <b>BaratoMas</b> in <b>EUW</b></p>
+    <button class="next" onclick="goStep(1)">Try again</button>
+</div>
+
+
+<div id="credits" class="credits hide">
+    Powered by <a href="https://get.tacter.app/WxYiSJCxaeb" target="_blank">Tacter App <img src="static/img/tacter_logo_small.png" align="absmiddle" width="20"></a>
+    <br>and <a href="https://leagueoflegends.fandom.com/wiki/Giant_Slayer_(Teamfight_Tactics)" target="_blank">Giant Slayer <img src="static/img/giant_slayer_logo.png" align="absmiddle" width="20"></a>
+</div>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<script src="https://vivirenremoto.github.io/esttik_juego/static/jquery.animateNumbers.min.js"></script>
+
+<script>
+
+
+
+
+var step = 1;
+var screen_width = $(document).width();
+var is_mobile = screen_width < 480;
+
+
+function format_time(time) {
+    // Hours, minutes and seconds
+    var hrs = ~~(time / 3600);
+    var mins = ~~((time % 3600) / 60);
+    var secs = ~~time % 60;
+
+    // Output like "1:01" or "4:03:59" or "123:03:59"
+    var ret = "";
+    if (hrs > 0) {
+        ret += "" + hrs + ":" + (mins < 10 ? "0" : "");
+    }
+    ret += "" + mins + ":" + (secs < 10 ? "0" : "");
+    ret += "" + secs;
+    return ret;
+}
+
+
+function goStep(index){
+    $('.step').hide();
+    $('#step'+index).show();
+    
+
+    $('#step' + index + ' .number').each(function(){
+        $(this).html('0').animateNumbers( $(this).data('number') , true);
+    });
+    
+
+    $('#step' + index + ' .graph').each(function(){
+        $(this).css('height', 0).animate({
+            height: $(this).data('number')
+        }, 1500);
+    });
+
+        
+    $('#step' + index + ' .icon').each(function(i, obj){
+
+        $(this).delay(i*250).animate({
+            opacity: 1
+        }, 500);
+        
+    });
+
+
+    if( index == 1 ){
+        $('#credits').hide();
+    }else{
+        $('#credits').show();
+    }
+
+
+
+    if( !is_mobile ){
+        if( index == 6 ){
+            $('#credits').removeClass('credits_fixed');
+        }else{
+            $('#credits').addClass('credits_fixed');
+        }
+    }
+    
+}
+
+
+
+
+$.ajax({
+    url: 'test.json', //https://staging.tacter.app/tft/v1/report?summonerName=BaratoNoMas&region=euw
+    dataType: 'json'
+}).done(function(data) {
+    
+    console.log(data);
+
+
+    $('.username').html(data.summonerName);
+    $('.rank').html(data.rank);
+
+
+
+
+
+    var t_longest_time = format_time( parseInt(data.longestGameTime) ).split(':');
+    var t_shortest_time = format_time( parseInt(data.shortestGameTime) ).split(':');
+    var t_avg_time = format_time( parseInt(data.avgMatchTime) ).split(':');
+
+
+
+    $('.time_longest_hour').data('number', t_longest_time[0]);
+    $('.time_longest_minute').data('number', t_longest_time[1]);
+    
+    $('.time_shortest_hour').data('number', t_shortest_time[0]);
+    $('.time_shortest_minute').data('number', t_shortest_time[1]);
+    
+    $('.time_avg_hour').data('number', t_avg_time[0]);
+    $('.time_avg_minute').data('number', t_avg_time[1]);
+    
+
+    
+
+
+    $('.rank_icon').css('background-image', "url('" + data.rankIconURL + "')");   
+    $('.total_games').data('number', parseInt(data.gamesPlayedCount));
+    $('.total_hours').data('number', parseInt(data.hoursCount));
+    $('.total_killed').data('number', parseInt(data.playersKilled));
+    $('.total_damage').data('number', parseInt(data.playersDamage));
+    
+
+
+    var html_champions = '';
+    $(data.champions).each(function(){
+        html_champions += '<div class="col3">Yuumi<img src="' + this.iconURL + '" class="icon"><b><span class="number" data-number="' + this.games + '">0</span> games</b>45% top ' + this.rank + '</div>';
+    });
+    $('#champions').html(html_champions);
+
+
+    var html_items = '';
+    $(data.items).each(function(){
+        html_items += '<div class="col3"><img src="' + this.iconURL + '" class="icon"><b><span class="number" data-number="' + this.games + '">0</span> games</b>45% top ' + this.rank + '</div>';
+    });
+    $('#items').html(html_items);
+    
+
+    var html_items_aux = '&nbsp; <img src="' + data.champions[0].iconURL + '" align="absmiddle" width="35" height="30" class="icon"> ';
+    html_items_aux += '<img src="' + data.items[0].iconURL + '" align="absmiddle" width="35" height="30" class="icon"> ';
+    $('#step6 .box_avatar div').append(html_items_aux);
+    
+
+
+    var placement_max = 0;
+    var html_placements = '<tr>';
+
+    $(data.placements).each(function(i, value){
+        if( placement_max < value ) placement_max = value;
+    });
+
+    $(data.placements).each(function(i, value){
+        var current_value = parseInt( ( value * 150 ) / placement_max);
+        var current_color;
+
+        if( value < 20 ){
+            current_color = '#baa944';
+        }else if( value < 30 ){
+            current_color = '#7d8891';
+        }else if( value < 40 ){
+            current_color = '#bd7753';
+        }else{
+            current_color = '#565d64';
+        }
+
+        html_placements += '<td valign="bottom" height="200">' + value + ' <div class="graph" data-number="' + current_value + '" style="background:' + current_color + ';width:10px;margin:10px auto;display:block;height:0;font-size:0;">&nbsp;</div></td>';
+    });
+
+    html_placements += '</tr>';
+    html_placements += '<tr class="bold">';
+    html_placements += '<td>1st</td>';
+    html_placements += '<td>2st</td>';
+    html_placements += '<td>3st</td>';
+    html_placements += '<td>4st</td>';
+    html_placements += '<td>5st</td>';
+    html_placements += '<td>6st</td>';
+    html_placements += '<td>7st</td>';
+    html_placements += '<td>8st</td>';
+    html_placements += '</tr>';
+
+    $('.placements').html(html_placements);
+
+    
+});
+            
+
+$('.download').click(function(){
+    window.open('https://get.tacter.app/WxYiSJCxaeb');
+});
+
+
+$('.btn_share').click(function(){
+    var network = $(this).attr('alt');
+    var share_url = document.location.href;
+    var share_message = document.title; //pending
+
+    if (network == 'twitter') {
+        share_url = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(share_message) + '&tw_p=tweetbutton&url=' + share_url;
+
+    } else if (network == 'facebook') {
+        share_url = 'https://www.facebook.com/sharer/sharer.php?u=' + share_url + '&quote=' + encodeURIComponent(share_message);
+
+    } if (network == 'whatsapp') {
+        share_url = 'whatsapp://send?text=' + encodeURIComponent(share_message + ' ' + share_url);
+    }
+
+    window.open(share_url);
+});
+
+</script>
+
+</body>
+</html>
